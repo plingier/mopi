@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import MopiHeader from './MopiHeader';
+import MopiMovieBlock from './MopiMovieBlock';
 
 // Define a minimum and maximum year (the max is the current year)
 const MIN_YEAR = 1990;
@@ -38,21 +39,27 @@ class App extends Component {
             // Get a random movie from that page
             let randomMovie = data.results[Math.floor(Math.random() * data.results.length)];
 
-            // Update our state
-            this.setState({randomMovie: randomMovie});
-
             // This is just for debugging
             console.log('Random movie: ', randomMovie);
             console.log('Backdrop path: ', BACKDROP_PATH_PREFIX + randomMovie.backdrop_path);
             console.log('Poster path: ', POSTER_PATH_PREFIX + randomMovie.poster_path);
+
+             // Update our state
+            this.setState({randomMovie: randomMovie});
           });
       });
   }
 
   render() {
+  	console.log(this.state.randomMovie.title, POSTER_PATH_PREFIX + this.state.randomMovie.poster_path );
+
     return (
       <div>
         <MopiHeader />
+	    <MopiMovieBlock 
+	    	title={this.state.randomMovie.title}
+	    	posterURL={POSTER_PATH_PREFIX + this.state.randomMovie.poster_path}
+	    />
 
         <footer>Powered by <a href="https://www.tmdb.org/">The Movie DB</a></footer>
       </div>
