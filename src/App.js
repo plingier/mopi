@@ -14,12 +14,15 @@ const BACKDROP_PATH_PREFIX = 'https://image.tmdb.org/t/p/w780';
 const POSTER_PATH_PREFIX = 'https://image.tmdb.org/t/p/w500';
 
 class App extends Component {
-  componentDidMount() {
-    // Set initial state
-    this.setState({
-      randomMovie: {}
-    });
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      randomMovie: {}
+    };
+  }
+
+  componentDidMount() {
     // Calculate a random year between MIN_YEAR and MAX_YEAR (excluded)
     let randomYear = Math.floor(Math.random() * (MAX_YEAR - MIN_YEAR) + MIN_YEAR);
 
