@@ -1,0 +1,13 @@
+h3 {
+	color:red;
+}
+
+
+
+/*.block-left, .block-right {
+	border: solid yellow 5px;
+}*/
+
+.block-right{
+	text-align: left;
+}

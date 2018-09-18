@@ -51,17 +51,21 @@ class App extends Component {
   }
 
   render() {
-  	console.log(this.state.randomMovie.title, POSTER_PATH_PREFIX + this.state.randomMovie.poster_path );
-
+  	let { title, poster_path, release_date, vote_average } = this.state.randomMovie;
+  	console.log(title, POSTER_PATH_PREFIX + poster_path);
     return (
       <div>
         <MopiHeader />
-	    <MopiMovieBlock 
-	    	title={this.state.randomMovie.title}
-	    	posterURL={POSTER_PATH_PREFIX + this.state.randomMovie.poster_path}
-	    />
+  	    <MopiMovieBlock 
+  	    	title={title}
+  	    	posterURL={POSTER_PATH_PREFIX + poster_path}
+  	    	release_date={release_date}
+  	    	vote_average={vote_average}
+  	    />
 
-        <footer>Powered by <a href="https://www.tmdb.org/">The Movie DB</a></footer>
+        <footer className="alert alert-light" role="alert">
+  			   Powered by <a className="alert-link" href="https://www.tmdb.org/">The Movie DB</a>
+  		  </footer>
       </div>
     );
   }

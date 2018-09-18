@@ -1,4 +1,9 @@
 h1 {
-	border-bottom: solid black;
-	padding: 20px;
+	/*border-bottom: solid red 5px;
+	color: white;*/
+/*	padding: 20px;
+*/}
+
+.gridTest .container{
+	color:green;
 }
